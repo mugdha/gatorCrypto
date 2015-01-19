@@ -1,0 +1,32 @@
+Goal
+
+The goal is the second assignment is to familiarize students with the use of cryptographic libraries. This is an assignment for individuals - no group work or collaboration allowed. Violations of the UF Honor code will be reported to the Office of Student Integrity immediately, and students will fail the course.
+
+Description
+
+In this homework you will compare the performance tradeoffs of various encryption/decryption/hashing algorithms using the gcrypt libraries provided by the Linux operating system. Details of this assignment are given below.
+
+The programs are to be written in 'C' and use the libgcrypt library. The make utility must be used to create the program.
+The file program cryptogator must take the following inputs: 
+cryptogator <input_file>
+where cryptogator takes an input file of arbitrary size and performs the following operations on it:
+AES128, CBC Mode
+AES256, CBC Mode
+RSA1024
+RSA4096
+HMAC SHA1
+HMAC SHA256
+HMAC MD5
+For your tests, your input file must be at least 100MB in size.
+For the four ciphers, you will encrypt the entire file and then decrypt it. You will time each of these operations, and perform them 100 times each. You will then present the mean and median times for each cipher (for encryption and decryption). You must generate a new key for each iteration, but timing the key generation is unnecessary.
+For the three hash algorithms, you will HMAC the entire file. As was done above, you will time each of 100 iterations of each algorithm and report the mean and median times for each.
+You will then generate a digital signature (using HMAC SHA 256 and RSA 4096) for your large file.
+You will write a report in which you present screen shots of your results. You must include the details of the machine you used to perform your tests, information about the file you selected, and a rank ordering of all of the above operations (i.e., based on performance). The report must be written using LaTeX.
+To turn in: you will create a tar file named < lastname >-assign2.tgz which contains a single directory < lastname >-assign2 which contains the Makefile and all of your source code for the program. All source code and the makefile should be extensively commented. I should be able to run the following commands (after retrieving the file from Canvas):
+tar xvfz < lastname >-assign2.tgz
+	    cd < lastname >-assign2
+	    make
+	    cryptogator input_file
+	    < display results >
+	    
+
